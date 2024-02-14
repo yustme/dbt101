@@ -1,0 +1,21 @@
+version: 2
+sources:
+    - name: out.c-demo-keboola-ex-google-drive-50114630
+      freshness:
+        warn_after:
+            count: 1
+            period: day
+      database: '{{ env_var("DBT_KBC_DEV_DATABASE") }}'
+      schema: out.c-demo-keboola-ex-google-drive-50114630
+      loaded_at_field: '"_timestamp"'
+      tables:
+        - name: account_6599f3_snapshot
+          quoting:
+            database: true
+            schema: true
+            identifier: true
+          columns:
+            - name: '"snapshot_pk"'
+              tests:
+                - unique
+                - not_null
